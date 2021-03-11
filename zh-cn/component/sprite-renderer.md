@@ -1,26 +1,39 @@
 # 图片显示
 
-有时候需要在3D空间中显示图片，并控制图片淡入淡出等属性。使用 [SpriteRenderer](${book.api}classes/core.spriterenderer.html) 组件可以轻松实现这些功能。
+[SpriteRenderer](${book.api}classes/core.spriterenderer.html) 组件用于在 3D/2D 场景中显示图片。
 
 ## 基本使用
 
-首先，需要先下载图片纹理（[Texture](${book.manual}resource/texture.md)），下载方法请参考[资源加载](${book.manual}resource/resource-manager.md)。
-
-
-然后，通过 [SpriteRenderer](${book.api}classes/core.spriterenderer.html) 组件 将图片绘制到3D空间。代码如下：
-
+1、下载图片纹理([Texture](${book.manual}resource/texture.md))下载方法请参考[资源加载](${book.manual}resource/resource-manager.md)    
+2、通过 texture 创建 [Sprite](${book.api}classes/core.2d.sprite.html) 对象    
+3、创建 [SpriteRenderer](${book.api}classes/core.2d.spriterenderer.html) 组件显示图片
 
 ```typescript
-import { SpriteRenderer } from 'oasis-engine';
+import {
+  AssetType,
+  Camera,
+  Script,
+  Sprite,
+  SpriteRenderer,
+  SystemInfo,
+  Texture2D,
+  Vector3,
+  WebGLEngine
+} from "oasis-engine";
 
-const texture2D = await this.engine.resourceManager.load("test.png");
-const spriteNode = rootNode.createChild('sprite');
-const spriteRenderer = spriteNode.addComponent(SpriteRenderer);
-spriteRenderer.texture = texture2D;
+engine.resourceManager
+  .load<Texture2D>({
+    url: "https://gw.alipayobjects.com/mdn/rms_7c464e/afts/img/A*d3N9RYpcKncAAAAAAAAAAAAAARQnAQ",
+    type: AssetType.Texture2D
+  })
+  .then((texture) => {
+    const spriteEntity = rootEntity.createChild(`sprite`);
+    // 给实体添加 SpriteRenderer 组件
+    const spriteRenderer = spriteEntity.addComponent(SpriteRenderer);
+    // 通过 texture 创建 sprite 对象
+    const sprite = new Sprite(engine, texture);
+    // 设置 sprite
+    spriteRenderer.sprite = sprite;
+  });
 ```
 
-可以通过SpriteRenderer.tintColor属性来调整颜色，实现淡入淡出效果。
-
-```typescript
-spriteRenderer.tintColor = new Vector4(1.0, 1.0, 1.0, 0.5);
-```
