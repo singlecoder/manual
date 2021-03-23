@@ -30,7 +30,7 @@ mtl.shininess = 100;
 sphereRenderer.material = mtl;
 ```
 
-- [PlaneGeometry](${book.api}classes/core.spheregeometry.html) **平面**
+- [PlaneGeometry](${book.api}classes/core.planegeometry.html) **平面**
 
 ```typescript
 // 创建材质
@@ -40,7 +40,7 @@ mtl.shininess = 100;
 
 let sphere = rootEntity.createChild('sphere');
 let sphereRenderer = sphere.addComponent(GeometryRenderer);
-sphereRenderer.geometry = new SphereGeometry(engine, 3, 32, 32);
+sphereRenderer.geometry = new PlaneGeometry(engine, 3, 3, 32, 32);
 sphereRenderer.material = mtl;
 ```
 
