@@ -13,7 +13,7 @@ sphereRenderer.mesh = PrimitiveMesh.createCuboid(engine, 2, 2, 2);
 let mtl = new BlinnPhongMaterial(engine, 'test_mtl2', false);
 mtl.ambient = new Vector4(0.75, 0.25, 0.25, 1);
 mtl.shininess = 100;
-sphereRenderer.material = mtl;
+sphereRenderer.setMaterial(mtl);
 ```
 
 - [Sphere](${book.api}classes/core.primitivemesh.html#createcylinder#createsphere) **球体**
@@ -27,7 +27,7 @@ sphereRenderer.mesh = PrimitiveMesh.createSphere(engine, 3, 32, 32);
 let mtl = new BlinnPhongMaterial((engine, 'test_mtl2', false);
 mtl.ambient = new Vector4(0.75, 0.25, 0.25, 1);
 mtl.shininess = 100;
-sphereRenderer.material = mtl;
+sphereRenderer.setMaterial(mtl);
 ```
 
 - [Plane](${book.api}classes/core.primitivemesh.html#createcylinder#createplane) **平面**
@@ -41,7 +41,7 @@ mtl.shininess = 100;
 let plane = rootEntity.createChild('sphere');
 let planeRenderer = sphere.addComponent(Mesh);
 planeRenderer.mesh = PrimitiveMesh.createPlane(engine);
-planeRenderer.material = mtl;
+planeRenderer.setMaterial(mtl);
 ```
 
 - [Cylinder](${book.api}classes/core.primitivemesh.html#createcylinder) **圆柱**
@@ -55,5 +55,5 @@ cylinderRenderer.mesh = PrimitiveMesh.createCylinder(engine, 2, 3, 5, 32);
 let mtl = new BlinnPhongMaterial(engine, 'test_mtl2', false);
 mtl.ambient = new Vector4(0.75, 0.25, 0.25, 1);
 mtl.shininess = 100;
-cylinderRenderer.material = mtl;
+cylinderRenderer.setMaterial(mtl);
 ```

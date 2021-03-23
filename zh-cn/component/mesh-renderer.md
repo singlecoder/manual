@@ -1,6 +1,6 @@
 # 自定义几何体渲染器
 
-[MeshRenderer](${book.api}classes/core.meshrenderer.html) 是一个偏底层的几何体渲染组件，其数据对象是 [Mesh](${book.api}classes/core.mesh.html)。`Mesh` 是个抽象类，开发者一般使用 [ModelMesh](${book.api}classes/core.modelmesh.html) 或 [BufferMesh](${book.api}classes/core.buffermesh.html)。
+[MeshRenderer](${book.api}classes/core.meshrenderer.html) 是几何体渲染组件，其数据对象是 [Mesh](${book.api}classes/core.mesh.html)。`Mesh` 是个抽象类，开发者一般使用 [ModelMesh](${book.api}classes/core.modelmesh.html) 或 [BufferMesh](${book.api}classes/core.buffermesh.html)。
 
 - `ModelMesh` 封装了常用的设置顶点数据和索引数据的方法，非常简单易用。开发者若想要快速地去自定义几何体可以使用该类。
 
@@ -20,8 +20,8 @@ ModelMesh 的使用主要分有两个步骤：
 
 | API            | 说明                   |
 | -------------- | ---------------------- |
-| setIndices     | 设置索引数据           |
 | setPositions   | 设置顶点坐标           |
+| setIndices     | 设置索引数据           |
 | setNormals     | 设置逐顶点法线数据     |
 | setColors      | 设置逐顶点颜色数据     |
 | setTangents    | 设置逐顶点切线         |
@@ -36,11 +36,11 @@ ModelMesh 的使用主要分有两个步骤：
 
 #### 2. 上传数据
 
-设置数据完成后，就可以上传数据了。上传数据也分有两种：数据无需变更，数据可变更。都是调用 `uploadData` 方法。
+设置数据完成后，就可以上传数据了。上传数据也分有两种：数据无需再变更，数据可变更。都是调用 `uploadData` 方法。
 
-##### 2.1 数据无需变更
+##### 2.1 数据无需再变更
 
-当数据无需变更时，我们直接使用 `uploadData(true)` ，表明数据不需要变更，再也不需要把 CPU 数据传递到 GPU 。此时 ModelMesh 里的所有 CPU 缓存都会被清空。意味着 Mesh 的数据已经无法访问了。
+当数据无需变更时，我们直接使用 `uploadData(true)` ，表明数据不需要变更，再也不需要把 CPU 数据传递到 GPU 。此时 ModelMesh 里的所有 CPU 缓存都会被清空。意味着 Mesh 的数据已经无法访问了。这种方式可以减少内存的占用。
 
 若再调用 `uploadData` 或是调用 `getPositions/setPositions`、`setNormals/getNormals` 等等方法都会抛出异常。
 
