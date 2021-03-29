@@ -12,7 +12,7 @@
   * [变换系统](${book.manual}component/transform.md)
   * [相机](${book.manual}component/camera.md)
   * [灯光](${book.manual}component/light.md)
-  * [几何体渲染器](${book.manual}component/geometry-renderer.md)
+  * [几何体渲染器](${book.manual}component/mesh-renderer.md)
   * [常用几何体](${book.manual}component/basic-geometry.md)
   * [脚本组件](${book.manual}component/script.md)
   * [骨骼动画](${book.manual}component/skeletal-animation.md)
