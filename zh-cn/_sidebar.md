@@ -13,6 +13,8 @@
   * [相机](${book.manual}component/camera.md)
   * [灯光](${book.manual}component/light.md)
   * [几何体渲染器](${book.manual}component/mesh-renderer.md)
+    * [BufferMesh](${book.manual}component/buffer-mesh.md)
+    * [ModelMesh](${book.manual}component/model-mesh.md)
   * [常用几何体](${book.manual}component/basic-geometry.md)
   * [脚本组件](${book.manual}component/script.md)
   * [骨骼动画](${book.manual}component/skeletal-animation.md)
