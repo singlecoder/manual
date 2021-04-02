@@ -1,6 +1,6 @@
 # 图片显示
 
-[SpriteRenderer](${book.api}classes/core.spriterenderer.html) 组件用于在 3D/2D 场景中显示图片。
+[SpriteRenderer](${book.api}classes/core.spriterenderer.html) 组件用于在 3D/2D 场景中显示图片。完整使用示例见 [playgournd](https://oasisengine.cn/0.3/playground/#/sprite-renderer)
 
 ## 基本使用
 
