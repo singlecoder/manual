@@ -13,7 +13,7 @@ let camera = cameraEntity.addComponent(Camera)
 
 let controler = cameraEntity.addComponent(OrbitControl);
 controler.autoRotate = true;
-controler.autoRotateSpeed = 10.0;
+controler.autoRotateSpeed = Math.PI / 5;
 controler.minDistance = 4;
 controler.maxDistance = 50;
 ```
@@ -33,7 +33,6 @@ let camera = cameraEntity.addComponent(Camera)
 let controler = cameraEntity.createAbility(FreeControl);
 controler.movementSpeed = 100;
 controler.rotateSpeed = 1;
-controler.jumpY = 50;
 ```
 
 

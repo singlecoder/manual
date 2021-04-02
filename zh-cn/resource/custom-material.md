@@ -1,7 +1,10 @@
 # 自定义材质
 
-业务中可能有一些特殊的渲染需求，例如毛发效果，这时候就需要“自定义材质”去实现。通过使用 _material_ 这个模块中的 [Material](${book.api}classes/core.material.html) 和 [Shader](${book.api}classes/core.shader.html) 这两个类，就可以将自己定义的 Shader 代码整合进入引擎的渲染流程。
+业务中可能有一些特殊的渲染需求，例如水流特效，这时候就需要“自定义材质”去实现。通过使用 __material__ 这个模块中的 [Material](${book.api}classes/core.material.html) 和 [Shader](${book.api}classes/core.shader.html) 这两个类，就可以将自己定义的 Shader 代码整合进入引擎的渲染流程。
 
+![avatar](https://gw.alipayobjects.com/mdn/rms_7c464e/afts/img/A*_LPIS5lrGUUAAAAAAAAAAAAAARQnAQ)
+
+\>> [Demo on Playground](${book.playground}#/shader-water)
 
 ## 创建 shader
 [Shader](${book.api}classes/core.shader.html) 封装了顶点着色器、片元着色器、着色器预编译、平台精度、平台差异性。他的创建和使用非常方便，用户只需要关注 shader 算法本身，而不用纠结于使用什么精度，亦或是使用 GLSL 哪个版本的写法。
@@ -203,11 +206,14 @@ target.destinationColorBlendFactor = target.destinationAlphaBlendFactor = BlendF
 // 操作方式为 src + dst  */
 target.colorBlendOperation = target.alphaBlendOperation = BlendOperation.Add;
 
-// 2. 关闭深度写入。
+// 2. 开启颜色混合
+target.enabled = true;
+
+// 3. 关闭深度写入。
 const depthState = renderState.depthState;
 depthState.writeEnabled = false;
 
-// 3. 设置透明渲染队列 （后面会讲为什么）
+// 4. 设置透明渲染队列 （后面会讲为什么）
 material.renderQueueType = RenderQueueType.Transparent;
 ```
 有关渲染状态的更多选项可以分别查看相应的[API 文档](${book.api}classes/core.renderstate-1.html) 
@@ -283,6 +289,7 @@ export class CustomMaterial extends Material{
     const target = this.renderState.blendState.targetBlendState;
     const depthState = this.renderState.depthState;
 
+    target.enabled = true;
     target.sourceColorBlendFactor = target.sourceAlphaBlendFactor = BlendFactor.SourceAlpha;
     target.destinationColorBlendFactor = target.destinationAlphaBlendFactor = BlendFactor.OneMinusSourceAlpha;
     depthState.writeEnabled = false;
