@@ -27,6 +27,7 @@
   * [纹理](${book.manual}resource/texture.md)
   * [材质](${book.manual}resource/material.md)
   * [自定义材质](${book.manual}resource/custom-material.md)
+  * [精灵](${book.manual}resource/sprite.md)
 * 工具库
   * [数学库](${book.manual}tools/math.md)
   * [引擎状态](${book.manual}tools/stats.md)
