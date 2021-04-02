@@ -13,6 +13,8 @@
   * [相机](${book.manual}component/camera.md)
   * [灯光](${book.manual}component/light.md)
   * [几何体渲染器](${book.manual}component/mesh-renderer.md)
+    * [BufferMesh](${book.manual}component/buffer-mesh.md)
+    * [ModelMesh](${book.manual}component/model-mesh.md)
   * [常用几何体](${book.manual}component/basic-geometry.md)
   * [脚本组件](${book.manual}component/script.md)
   * [骨骼动画](${book.manual}component/skeletal-animation.md)
@@ -25,6 +27,7 @@
   * [纹理](${book.manual}resource/texture.md)
   * [材质](${book.manual}resource/material.md)
   * [自定义材质](${book.manual}resource/custom-material.md)
+  * [精灵](${book.manual}resource/sprite.md)
 * 工具库
   * [数学库](${book.manual}tools/math.md)
   * [引擎状态](${book.manual}tools/stats.md)
