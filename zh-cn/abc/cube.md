@@ -64,7 +64,7 @@ lightEntity.transform.rotation = new Vector3(45, 45, 45);
 
 // 创建立方体实体
 let cubeEntity = rootEntity.createChild('cube');
-let cube = entity.addComponent(MeshRenderer);
+let cube = cubeEntity.addComponent(MeshRenderer);
 cube.mesh = PrimitiveMesh.createCuboid(engine, 2, 2, 2);
 cube.setMaterial(new BlinnPhongMaterial(engine, 'blinn'));
 
