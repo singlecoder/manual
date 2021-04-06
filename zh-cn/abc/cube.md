@@ -22,8 +22,7 @@ import {
   Entity,
   WebCanvas,
   WebGLRenderer,
-  GeometryRenderer,
-  CuboidGeometry,
+  PrimitiveMesh,
   BlinnPhongMaterial,
   DirectLight,
   Vector3,
@@ -65,9 +64,9 @@ lightEntity.transform.rotation = new Vector3(45, 45, 45);
 
 // 创建立方体实体
 let cubeEntity = rootEntity.createChild('cube');
-let cube = cubeEntity.addComponent(GeometryRenderer)
-cube.geometry = new CuboidGeometry(engine, 4, 4, 4);
-cube.material = new BlinnPhongMaterial(engine, 'blinn');
+let cube = cubeEntity.addComponent(MeshRenderer);
+cube.mesh = PrimitiveMesh.createCuboid(engine, 2, 2, 2);
+cube.setMaterial(new BlinnPhongMaterial(engine));
 
 // 旋转脚本组件
 class Rotate extends Script {
